@@ -1,11 +1,29 @@
+@import "_main";
+
 .input {
-  width: 200px;
-  height: 200px;
+  @include flex-center;
   font-size: 30px;
   color: white;
+  background-color: $foreground;
+  padding: 0.8rem;
+  border-radius: 1rem;
+
+  input {
+    width: 100%;
+    background-color: transparent;
+    color: $fontPrimary;
+    border: none;
+    font-size: 1.4rem;
+    margin-left: 0.6rem;
+    outline: none;
+  }
+
+  input::placeholder {
+    color: $fontSecondary;
+  }
 
   fa-icon {
-    font-size: 4rem;
+    font-size: 1.4rem;
     color: red;
   }
 }
