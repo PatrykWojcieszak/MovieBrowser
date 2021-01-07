@@ -16,6 +16,9 @@ export class HomePageComponent implements OnInit {
   trendingDaySelected = true;
   trendingThisWeekSelected = false;
 
+  popularMovieSelected = true;
+  popularTvSelected = false;
+
   constructor(private homePageService: HomePageService) {
     this.trendingMovies = {
       total_pages: 0,
@@ -46,7 +49,7 @@ export class HomePageComponent implements OnInit {
   ngOnInit() {
     this.homePageService.fetchTrendingMovies('day');
     this.homePageService.fetchTopRatedMovies();
-    this.homePageService.fetchPopularMovies();
+    this.homePageService.fetchPopularMovies('movie');
     this.homePageService.fetchUpcomingMovies();
 
     this.homePageService.getTrendingMovies.subscribe((trendingMovies) => {
@@ -80,5 +83,17 @@ export class HomePageComponent implements OnInit {
     }
 
     this.homePageService.fetchTrendingMovies(timeWindow);
+  }
+
+  popularBtn(type: string) {
+    if (type === 'movie') {
+      this.popularMovieSelected = true;
+      this.popularTvSelected = false;
+    } else {
+      this.popularMovieSelected = false;
+      this.popularTvSelected = true;
+    }
+
+    this.homePageService.fetchPopularMovies(type);
   }
 }

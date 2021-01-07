@@ -30,8 +30,16 @@
     <div class="movieListContainer" *ngIf="popularMovies">
       <div class="row">
         <h2>Popular</h2>
-        <app-Button btnName="Movie"></app-Button>
-        <app-Button btnName="TV" [isSelected]="true"></app-Button>
+        <app-Button
+          btnName="Movie"
+          [isSelected]="popularMovieSelected"
+          (btnClicked)="popularBtn('movie')"
+        ></app-Button>
+        <app-Button
+          btnName="TV"
+          [isSelected]="popularTvSelected"
+          (btnClicked)="popularBtn('tv')"
+        ></app-Button>
       </div>
       <div class="movieListWrapper">
         <app-MovieCard

@@ -61,8 +61,8 @@ export class HomePageService {
     });
   }
 
-  public fetchPopularMovies() {
-    this.movieApi.GetPopularMovies().subscribe((res: any) => {
+  public fetchPopularMovies(type: string) {
+    this.movieApi.GetPopularMovies(type).subscribe((res: any) => {
       this._popularMovies.next(res);
     });
   }

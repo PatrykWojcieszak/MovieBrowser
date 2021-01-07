@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class MovieApiService {
   private GET_TRENDING_MOVIES: string = '/trending/all/';
-  private GET_POPULAR_MOVIES: string = '/movie/popular';
+  private GET_POPULAR_MOVIES: string = '/popular';
   private GET_TOP_RATED_MOVIES: string = '/movie/top_rated';
   private GET_UPCOMING_MOVIES: string = '/movie/upcoming';
 
@@ -18,8 +18,10 @@ export class MovieApiService {
     );
   }
 
-  public GetPopularMovies() {
-    return this.API.Get(this.API.BuildAddress(this.GET_POPULAR_MOVIES));
+  public GetPopularMovies(type: string) {
+    return this.API.Get(
+      this.API.BuildAddress(`/${type}${this.GET_POPULAR_MOVIES}`)
+    );
   }
 
   public GetTopRatedMovies() {
