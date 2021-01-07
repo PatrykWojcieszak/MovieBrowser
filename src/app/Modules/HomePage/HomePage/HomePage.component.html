@@ -22,8 +22,8 @@
     <div class="movieListContainer" *ngIf="popularMovies">
       <div class="row">
         <h2>Popular</h2>
-        <app-Button btnName="Today"></app-Button>
-        <app-Button btnName="This Week" [isSelected]="true"></app-Button>
+        <app-Button btnName="Movie"></app-Button>
+        <app-Button btnName="TV" [isSelected]="true"></app-Button>
       </div>
       <div class="movieListWrapper">
         <app-MovieCard
@@ -36,8 +36,6 @@
     <div class="movieListContainer" *ngIf="upcomingMovies">
       <div class="row">
         <h2>Upcoming</h2>
-        <app-Button btnName="Today"></app-Button>
-        <app-Button btnName="This Week" [isSelected]="true"></app-Button>
       </div>
       <div class="movieListWrapper">
         <app-MovieCard
@@ -50,8 +48,6 @@
     <div class="movieListContainer" *ngIf="topRatedMovies">
       <div class="row">
         <h2>Top Rated</h2>
-        <app-Button btnName="Today"></app-Button>
-        <app-Button btnName="This Week" [isSelected]="true"></app-Button>
       </div>
       <div class="movieListWrapper">
         <app-MovieCard

@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { HomePageService } from '../HomePage.service';
 import IMovie from 'src/app/Models/IMovie';
-import IQueryResult from 'src/app/Models/IQueryResult';
+import IQueryRes from 'src/app/Models/IQueryRes';
 @Component({
   selector: 'app-HomePage',
   templateUrl: './HomePage.component.html',
   styleUrls: ['./HomePage.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-  trendingMovies: IQueryResult<IMovie>;
-  popularMovies: IQueryResult<IMovie>;
-  topRatedMovies: IQueryResult<IMovie>;
-  upcomingMovies: IQueryResult<IMovie>;
+  trendingMovies: IQueryRes<IMovie>;
+  popularMovies: IQueryRes<IMovie>;
+  topRatedMovies: IQueryRes<IMovie>;
+  upcomingMovies: IQueryRes<IMovie>;
 
   constructor(private homePageService: HomePageService) {
     this.trendingMovies = {
@@ -41,7 +41,7 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.homePageService.fetchTrendingMovies();
+    this.homePageService.fetchTrendingMovies('day');
     this.homePageService.fetchTopRatedMovies();
     this.homePageService.fetchPopularMovies();
     this.homePageService.fetchUpcomingMovies();
