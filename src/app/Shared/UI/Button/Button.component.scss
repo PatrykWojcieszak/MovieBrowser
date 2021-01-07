@@ -1,0 +1,15 @@
+@import "_main";
+
+.button {
+  padding: 1rem;
+  border-radius: 0.6rem;
+  color: $fontSecondary;
+  background-color: $foreground;
+  font-size: 1.2rem;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.selected {
+  color: $red;
+}

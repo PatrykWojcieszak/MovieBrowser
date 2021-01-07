@@ -1,0 +1,36 @@
+@import "_main";
+
+.HomePage {
+  padding: 2rem 4rem;
+
+  .contentContainer {
+    @include flex-column;
+    margin-top: 4rem;
+
+    .movieListContainer {
+      @include flex-column;
+      margin: 1rem 0;
+
+      .row {
+        display: flex;
+        margin-bottom: 2rem;
+
+        h2 {
+          font-size: 2.5rem;
+          font-weight: 100;
+          color: $fontPrimary;
+        }
+      }
+
+      .row > * {
+        margin-right: 1rem;
+      }
+
+      .movieListWrapper {
+        overflow-x: scroll;
+        display: flex;
+        padding-bottom: 1rem;
+      }
+    }
+  }
+}

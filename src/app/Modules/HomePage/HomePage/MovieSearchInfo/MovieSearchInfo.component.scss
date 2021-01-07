@@ -1,0 +1,43 @@
+@import "_main";
+
+.movie {
+  display: flex;
+  height: 150px;
+  cursor: pointer;
+  border-radius: 1rem;
+  background-color: $foreground;
+  margin: 1rem 0;
+
+  .image {
+    img {
+      height: 100%;
+      width: 95px;
+      object-fit: cover;
+      border-top-left-radius: 1rem;
+      border-bottom-left-radius: 1rem;
+    }
+  }
+
+  .content {
+    @include flex-column;
+    padding: 0.4rem;
+
+    h2 {
+      font-weight: 100;
+      color: $fontPrimary;
+      font-size: 2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    h4,
+    p {
+      color: $fontSecondary;
+    }
+
+    h4 {
+      margin-bottom: 1.5rem;
+      font-size: 0.8rem;
+      font-weight: 300;
+    }
+  }
+}

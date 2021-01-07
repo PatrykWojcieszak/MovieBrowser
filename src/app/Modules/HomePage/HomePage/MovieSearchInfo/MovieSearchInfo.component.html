@@ -1,0 +1,12 @@
+<div class="movie">
+  <div class="image">
+    <img src="{{ getImgPath() }}" alt="movie" />
+  </div>
+  <div class="content">
+    <h2>{{ movie.title || movie.name }}</h2>
+    <h4 *ngIf="movie.release_date">{{ movie.release_date }}</h4>
+    <p>
+      {{ movie.overview }}
+    </p>
+  </div>
+</div>
