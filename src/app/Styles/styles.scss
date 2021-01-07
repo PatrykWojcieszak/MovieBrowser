@@ -17,3 +17,23 @@ h3,
 h4 {
   margin: 0;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $red;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $red;
+}
+
+::-webkit-scrollbar-track {
+  background: #a7a9ac;
+  border-radius: 8px;
+  box-shadow: inset 7px 10px 12px #f0f0f0;
+}

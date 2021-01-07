@@ -4,8 +4,13 @@
   padding: 2rem 4rem;
 
   .contentContainer {
-    @include flex-center;
-    flex-wrap: wrap;
+    @include flex-column;
     margin-top: 4rem;
+
+    .movieListContainer {
+      overflow-x: scroll;
+      display: flex;
+      padding-bottom: 1rem;
+    }
   }
 }
