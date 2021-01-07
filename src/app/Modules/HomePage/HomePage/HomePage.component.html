@@ -5,6 +5,11 @@
     (onKeyEnter)="searchInput($event)"
   ></app-Input>
   <div class="contentContainer">
+    <app-MovieSearchInfo
+      *ngFor="let item of trendingMovies.results"
+      [movie]="item"
+    ></app-MovieSearchInfo>
+
     <div class="movieListContainer" *ngIf="trendingMovies">
       <div class="row">
         <h2>Trending</h2>

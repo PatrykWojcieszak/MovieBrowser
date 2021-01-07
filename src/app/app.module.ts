@@ -1,3 +1,4 @@
+import { MovieSearchInfoComponent } from './Modules/HomePage/HomePage/MovieSearchInfo/MovieSearchInfo.component';
 import { GetGenrePipe } from './Shared/Pipes/GetGenre.pipe';
 import { ShortenStringPipe } from './Shared/Pipes/ShortenString.pipe';
 import { MovieCardComponent } from './Modules/HomePage/HomePage/MovieCard/MovieCard.component';
@@ -21,6 +22,7 @@ import { ButtonComponent } from './Shared/UI/Button/Button.component';
     ButtonComponent,
     ShortenStringPipe,
     GetGenrePipe,
+    MovieSearchInfoComponent,
   ],
   imports: [
     BrowserModule,
