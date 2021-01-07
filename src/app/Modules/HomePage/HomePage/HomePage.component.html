@@ -6,9 +6,16 @@
   ></app-Input>
   <div class="contentContainer">
     <div class="movieListContainer" *ngIf="trendingMovies">
-      <app-MovieCard
-        *ngFor="let item of trendingMovies.results"
-      ></app-MovieCard>
+      <div class="row">
+        <h2>Trending</h2>
+        <app-Button btnName="Today"></app-Button>
+        <app-Button btnName="This Week" [isSelected]="true"></app-Button>
+      </div>
+      <div class="movieListWrapper">
+        <app-MovieCard
+          *ngFor="let item of trendingMovies.results"
+        ></app-MovieCard>
+      </div>
     </div>
   </div>
 </div>

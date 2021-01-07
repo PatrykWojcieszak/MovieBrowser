@@ -1,3 +1,4 @@
+import { ButtonComponent } from './Shared/Button/Button.component';
 import { MovieCardComponent } from './Modules/HomePage/HomePage/MovieCard/MovieCard.component';
 import { InputComponent } from './Shared/Input/Input.component';
 import { HomePageComponent } from './Modules/HomePage/HomePage/HomePage.component';
@@ -15,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomePageComponent,
     InputComponent,
     MovieCardComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,
