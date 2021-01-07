@@ -12,7 +12,7 @@
     <div class="additionalInfoWrapper">
       <h3>Summary</h3>
       <p>
-        {{ movie.overview }}
+        {{ movie.overview | ShortenString: 100 }}
       </p>
     </div>
   </div>
