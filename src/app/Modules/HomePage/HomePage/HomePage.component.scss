@@ -9,6 +9,7 @@
 
     .movieListContainer {
       @include flex-column;
+      margin: 1rem 0;
 
       .row {
         display: flex;

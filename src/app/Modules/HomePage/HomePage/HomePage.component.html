@@ -14,6 +14,49 @@
       <div class="movieListWrapper">
         <app-MovieCard
           *ngFor="let item of trendingMovies.results"
+          [movie]="item"
+        ></app-MovieCard>
+      </div>
+    </div>
+
+    <div class="movieListContainer" *ngIf="popularMovies">
+      <div class="row">
+        <h2>Popular</h2>
+        <app-Button btnName="Today"></app-Button>
+        <app-Button btnName="This Week" [isSelected]="true"></app-Button>
+      </div>
+      <div class="movieListWrapper">
+        <app-MovieCard
+          *ngFor="let item of popularMovies.results"
+          [movie]="item"
+        ></app-MovieCard>
+      </div>
+    </div>
+
+    <div class="movieListContainer" *ngIf="upcomingMovies">
+      <div class="row">
+        <h2>Upcoming</h2>
+        <app-Button btnName="Today"></app-Button>
+        <app-Button btnName="This Week" [isSelected]="true"></app-Button>
+      </div>
+      <div class="movieListWrapper">
+        <app-MovieCard
+          *ngFor="let item of upcomingMovies.results"
+          [movie]="item"
+        ></app-MovieCard>
+      </div>
+    </div>
+
+    <div class="movieListContainer" *ngIf="topRatedMovies">
+      <div class="row">
+        <h2>Top Rated</h2>
+        <app-Button btnName="Today"></app-Button>
+        <app-Button btnName="This Week" [isSelected]="true"></app-Button>
+      </div>
+      <div class="movieListWrapper">
+        <app-MovieCard
+          *ngFor="let item of topRatedMovies.results"
+          [movie]="item"
         ></app-MovieCard>
       </div>
     </div>

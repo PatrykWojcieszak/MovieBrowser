@@ -9,7 +9,10 @@ import IQueryResult from 'src/app/Models/IQueryResult';
   styleUrls: ['./HomePage.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-  trendingMovies: IQueryResult<IMovie> | undefined;
+  trendingMovies: IQueryResult<IMovie>;
+  popularMovies: IQueryResult<IMovie>;
+  topRatedMovies: IQueryResult<IMovie>;
+  upcomingMovies: IQueryResult<IMovie>;
 
   constructor(private homePageService: HomePageService) {
     this.trendingMovies = {
@@ -18,14 +21,46 @@ export class HomePageComponent implements OnInit {
       total_results: 0,
       page: 0,
     };
+    this.popularMovies = {
+      total_pages: 0,
+      results: [],
+      total_results: 0,
+      page: 0,
+    };
+    this.topRatedMovies = {
+      total_pages: 0,
+      results: [],
+      total_results: 0,
+      page: 0,
+    };
+    this.upcomingMovies = {
+      total_pages: 0,
+      results: [],
+      total_results: 0,
+      page: 0,
+    };
   }
 
   ngOnInit() {
-    this.homePageService.fetchMovies();
+    this.homePageService.fetchTrendingMovies();
+    this.homePageService.fetchTopRatedMovies();
+    this.homePageService.fetchPopularMovies();
+    this.homePageService.fetchUpcomingMovies();
 
-    this.homePageService.trendingMovie.subscribe((trendingMovies) => {
+    this.homePageService.getTrendingMovies.subscribe((trendingMovies) => {
       this.trendingMovies = trendingMovies;
-      console.log(trendingMovies);
+    });
+
+    this.homePageService.getPopularMovies.subscribe((popularMovies) => {
+      this.popularMovies = popularMovies;
+    });
+
+    this.homePageService.getTopRatedMovies.subscribe((topRatedMovies) => {
+      this.topRatedMovies = topRatedMovies;
+    });
+
+    this.homePageService.getUpcomingMovies.subscribe((upcomingMovies) => {
+      this.upcomingMovies = upcomingMovies;
     });
   }
 

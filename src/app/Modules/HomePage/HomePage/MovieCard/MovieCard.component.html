@@ -1,17 +1,18 @@
 <div class="movieCard">
   <img
-    src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sypTf28XSDoKURA3rDPhz5oZMdD.jpg"
-    alt="movi"
+    src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{
+      movie.backdrop_path
+    }}"
+    alt="movieCard"
   />
   <div class="contentContainer">
-    <h2>Interstellar</h2>
-    <h4>2020-12-16 | Adventure, Drama, Sci-FI</h4>
-    <span>7.3</span>
+    <h2>{{ movie.title || movie.name }}</h2>
+    <h4>{{ movie.release_date }} | Adventure, Drama, Sci-FI</h4>
+    <span>{{ movie.vote_average }}</span>
     <div class="additionalInfoWrapper">
       <h3>Summary</h3>
       <p>
-        Wonder Woman comes into conflict with the Soviet Union during the Cold
-        War in the 1980s and finds a formidable foe by the name of the Cheetah.
+        {{ movie.overview }}
       </p>
     </div>
   </div>
