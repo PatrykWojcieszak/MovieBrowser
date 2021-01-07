@@ -1,3 +1,4 @@
+import { MovieCardComponent } from './Modules/HomePage/HomePage/MovieCard/MovieCard.component';
 import { InputComponent } from './Shared/Input/Input.component';
 import { HomePageComponent } from './Modules/HomePage/HomePage/HomePage.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,7 +10,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, HomePageComponent, InputComponent],
+  declarations: [
+    AppComponent,
+    HomePageComponent,
+    InputComponent,
+    MovieCardComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,8 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import "_main";
 
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
 body {
   margin: 0;
   background-color: $background;
   box-sizing: border-box;
+  font-family: "Roboto", "Lato", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
 }

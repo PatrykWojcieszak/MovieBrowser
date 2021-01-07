@@ -2,4 +2,10 @@
 
 .HomePage {
   padding: 2rem 4rem;
+
+  .contentContainer {
+    @include flex-center;
+    flex-wrap: wrap;
+    margin-top: 4rem;
+  }
 }
