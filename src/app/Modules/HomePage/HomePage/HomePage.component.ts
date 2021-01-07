@@ -13,6 +13,9 @@ export class HomePageComponent implements OnInit {
   topRatedMovies: IQueryRes<IMovie>;
   upcomingMovies: IQueryRes<IMovie>;
 
+  trendingDaySelected = true;
+  trendingThisWeekSelected = false;
+
   constructor(private homePageService: HomePageService) {
     this.trendingMovies = {
       total_pages: 0,
@@ -65,5 +68,17 @@ export class HomePageComponent implements OnInit {
 
   searchInput(searchValue: string) {
     console.log(searchValue);
+  }
+
+  trendingBtn(timeWindow: string) {
+    if (timeWindow === 'day') {
+      this.trendingDaySelected = true;
+      this.trendingThisWeekSelected = false;
+    } else {
+      this.trendingDaySelected = false;
+      this.trendingThisWeekSelected = true;
+    }
+
+    this.homePageService.fetchTrendingMovies(timeWindow);
   }
 }

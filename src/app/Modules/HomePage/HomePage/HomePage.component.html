@@ -8,8 +8,16 @@
     <div class="movieListContainer" *ngIf="trendingMovies">
       <div class="row">
         <h2>Trending</h2>
-        <app-Button btnName="Today"></app-Button>
-        <app-Button btnName="This Week" [isSelected]="true"></app-Button>
+        <app-Button
+          btnName="Today"
+          [isSelected]="trendingDaySelected"
+          (btnClicked)="trendingBtn('day')"
+        ></app-Button>
+        <app-Button
+          btnName="This Week"
+          [isSelected]="trendingThisWeekSelected"
+          (btnClicked)="trendingBtn('week')"
+        ></app-Button>
       </div>
       <div class="movieListWrapper">
         <app-MovieCard
