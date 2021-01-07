@@ -19,11 +19,13 @@ export class HomePageService {
   private _topRatedMovies = new BehaviorSubject<IQueryRes<IMovie>>(initial);
   private _popularMovies = new BehaviorSubject<IQueryRes<IMovie>>(initial);
   private _upcomingMovies = new BehaviorSubject<IQueryRes<IMovie>>(initial);
+  private _searchResult = new BehaviorSubject<IQueryRes<IMovie>>(initial);
 
   readonly trendingMovies = this._trendingMovies.asObservable();
   readonly topRatedMovies = this._topRatedMovies.asObservable();
   readonly popularMovies = this._popularMovies.asObservable();
   readonly upcomingMovies = this._upcomingMovies.asObservable();
+  readonly searchResult = this._upcomingMovies.asObservable();
 
   constructor(private movieApi: MovieApiService) {}
 
@@ -41,6 +43,10 @@ export class HomePageService {
 
   get getTopRatedMovies() {
     return this._topRatedMovies.asObservable();
+  }
+
+  get getSearchValue() {
+    return this._searchResult.asObservable();
   }
 
   public fetchTrendingMovies(timeWindow: string) {
@@ -64,6 +70,12 @@ export class HomePageService {
   public fetchPopularMovies(type: string) {
     this.movieApi.GetPopularMovies(type).subscribe((res: any) => {
       this._popularMovies.next(res);
+    });
+  }
+
+  public search(query: string) {
+    this.movieApi.Search(query).subscribe((res: any) => {
+      this._searchResult.next(res);
     });
   }
 }

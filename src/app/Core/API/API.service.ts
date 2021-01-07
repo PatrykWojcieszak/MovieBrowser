@@ -13,7 +13,11 @@ export class APIService {
     return this.http.get(address, { params: query });
   }
 
-  public BuildAddress(endpoint: string) {
-    return baseUrl + endpoint + '?api_key=d58f939339ad09e15d02da6181e38546';
+  public BuildAddress(endpoint: string, query?: string) {
+    let url = baseUrl + endpoint + '?api_key=d58f939339ad09e15d02da6181e38546';
+
+    if (query) url += `&query=${query}`;
+
+    return url;
   }
 }

@@ -12,12 +12,15 @@ export class HomePageComponent implements OnInit {
   popularMovies: IQueryRes<IMovie>;
   topRatedMovies: IQueryRes<IMovie>;
   upcomingMovies: IQueryRes<IMovie>;
+  searchResult: IQueryRes<IMovie>;
 
   trendingDaySelected = true;
   trendingThisWeekSelected = false;
 
   popularMovieSelected = true;
   popularTvSelected = false;
+
+  isSearch = false;
 
   constructor(private homePageService: HomePageService) {
     this.trendingMovies = {
@@ -26,19 +29,29 @@ export class HomePageComponent implements OnInit {
       total_results: 0,
       page: 0,
     };
+
     this.popularMovies = {
       total_pages: 0,
       results: [],
       total_results: 0,
       page: 0,
     };
+
     this.topRatedMovies = {
       total_pages: 0,
       results: [],
       total_results: 0,
       page: 0,
     };
+
     this.upcomingMovies = {
+      total_pages: 0,
+      results: [],
+      total_results: 0,
+      page: 0,
+    };
+
+    this.searchResult = {
       total_pages: 0,
       results: [],
       total_results: 0,
@@ -67,10 +80,18 @@ export class HomePageComponent implements OnInit {
     this.homePageService.getUpcomingMovies.subscribe((upcomingMovies) => {
       this.upcomingMovies = upcomingMovies;
     });
+
+    this.homePageService.getSearchValue.subscribe((searchRes) => {
+      this.searchResult = searchRes;
+    });
   }
 
   searchInput(searchValue: string) {
-    console.log(searchValue);
+    if (searchValue === '') this.isSearch = false;
+    else {
+      this.isSearch = true;
+      this.homePageService.search(searchValue);
+    }
   }
 
   trendingBtn(timeWindow: string) {

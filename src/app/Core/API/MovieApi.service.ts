@@ -9,6 +9,7 @@ export class MovieApiService {
   private GET_POPULAR_MOVIES: string = '/popular';
   private GET_TOP_RATED_MOVIES: string = '/movie/top_rated';
   private GET_UPCOMING_MOVIES: string = '/movie/upcoming';
+  private SEARCH: string = '/search/multi';
 
   constructor(private API: APIService) {}
 
@@ -30,5 +31,9 @@ export class MovieApiService {
 
   public GetUpcomingMovies() {
     return this.API.Get(this.API.BuildAddress(this.GET_UPCOMING_MOVIES));
+  }
+
+  public Search(searchValue: string) {
+    return this.API.Get(this.API.BuildAddress(this.SEARCH, searchValue));
   }
 }

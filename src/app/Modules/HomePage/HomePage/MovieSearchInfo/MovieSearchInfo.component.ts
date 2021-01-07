@@ -28,4 +28,11 @@ export class MovieSearchInfoComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  getImgPath() {
+    if (this.movie.backdrop_path)
+      return `https://image.tmdb.org/t/p/w500/${this.movie.backdrop_path}`;
+    else
+      return 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/No_picture_available.png/401px-No_picture_available.png';
+  }
 }

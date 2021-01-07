@@ -5,77 +5,81 @@
     (onKeyEnter)="searchInput($event)"
   ></app-Input>
   <div class="contentContainer">
-    <app-MovieSearchInfo
-      *ngFor="let item of trendingMovies.results"
-      [movie]="item"
-    ></app-MovieSearchInfo>
+    <ng-container *ngIf="isSearch">
+      <app-MovieSearchInfo
+        *ngFor="let item of searchResult.results"
+        [movie]="item"
+      ></app-MovieSearchInfo>
+    </ng-container>
 
-    <div class="movieListContainer" *ngIf="trendingMovies">
-      <div class="row">
-        <h2>Trending</h2>
-        <app-Button
-          btnName="Today"
-          [isSelected]="trendingDaySelected"
-          (btnClicked)="trendingBtn('day')"
-        ></app-Button>
-        <app-Button
-          btnName="This Week"
-          [isSelected]="trendingThisWeekSelected"
-          (btnClicked)="trendingBtn('week')"
-        ></app-Button>
+    <ng-container *ngIf="!isSearch">
+      <div class="movieListContainer" *ngIf="trendingMovies">
+        <div class="row">
+          <h2>Trending</h2>
+          <app-Button
+            btnName="Today"
+            [isSelected]="trendingDaySelected"
+            (btnClicked)="trendingBtn('day')"
+          ></app-Button>
+          <app-Button
+            btnName="This Week"
+            [isSelected]="trendingThisWeekSelected"
+            (btnClicked)="trendingBtn('week')"
+          ></app-Button>
+        </div>
+        <div class="movieListWrapper">
+          <app-MovieCard
+            *ngFor="let item of trendingMovies.results"
+            [movie]="item"
+          ></app-MovieCard>
+        </div>
       </div>
-      <div class="movieListWrapper">
-        <app-MovieCard
-          *ngFor="let item of trendingMovies.results"
-          [movie]="item"
-        ></app-MovieCard>
-      </div>
-    </div>
 
-    <div class="movieListContainer" *ngIf="popularMovies">
-      <div class="row">
-        <h2>Popular</h2>
-        <app-Button
-          btnName="Movie"
-          [isSelected]="popularMovieSelected"
-          (btnClicked)="popularBtn('movie')"
-        ></app-Button>
-        <app-Button
-          btnName="TV"
-          [isSelected]="popularTvSelected"
-          (btnClicked)="popularBtn('tv')"
-        ></app-Button>
+      <div class="movieListContainer" *ngIf="popularMovies">
+        <div class="row">
+          <h2>Popular</h2>
+          <app-Button
+            btnName="Movie"
+            [isSelected]="popularMovieSelected"
+            (btnClicked)="popularBtn('movie')"
+          ></app-Button>
+          <app-Button
+            btnName="TV"
+            [isSelected]="popularTvSelected"
+            (btnClicked)="popularBtn('tv')"
+          ></app-Button>
+        </div>
+        <div class="movieListWrapper">
+          <app-MovieCard
+            *ngFor="let item of popularMovies.results"
+            [movie]="item"
+          ></app-MovieCard>
+        </div>
       </div>
-      <div class="movieListWrapper">
-        <app-MovieCard
-          *ngFor="let item of popularMovies.results"
-          [movie]="item"
-        ></app-MovieCard>
-      </div>
-    </div>
 
-    <div class="movieListContainer" *ngIf="upcomingMovies">
-      <div class="row">
-        <h2>Upcoming</h2>
+      <div class="movieListContainer" *ngIf="upcomingMovies">
+        <div class="row">
+          <h2>Upcoming</h2>
+        </div>
+        <div class="movieListWrapper">
+          <app-MovieCard
+            *ngFor="let item of upcomingMovies.results"
+            [movie]="item"
+          ></app-MovieCard>
+        </div>
       </div>
-      <div class="movieListWrapper">
-        <app-MovieCard
-          *ngFor="let item of upcomingMovies.results"
-          [movie]="item"
-        ></app-MovieCard>
-      </div>
-    </div>
 
-    <div class="movieListContainer" *ngIf="topRatedMovies">
-      <div class="row">
-        <h2>Top Rated</h2>
+      <div class="movieListContainer" *ngIf="topRatedMovies">
+        <div class="row">
+          <h2>Top Rated</h2>
+        </div>
+        <div class="movieListWrapper">
+          <app-MovieCard
+            *ngFor="let item of topRatedMovies.results"
+            [movie]="item"
+          ></app-MovieCard>
+        </div>
       </div>
-      <div class="movieListWrapper">
-        <app-MovieCard
-          *ngFor="let item of topRatedMovies.results"
-          [movie]="item"
-        ></app-MovieCard>
-      </div>
-    </div>
+    </ng-container>
   </div>
 </div>
