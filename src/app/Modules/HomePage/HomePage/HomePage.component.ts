@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HomePageService } from '../HomePage.service';
 import IMovie from 'src/app/Models/IMovie';
 import IQueryResult from 'src/app/Models/IQueryResult';
-
 @Component({
   selector: 'app-HomePage',
   templateUrl: './HomePage.component.html',

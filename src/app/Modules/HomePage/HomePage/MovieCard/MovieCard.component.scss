@@ -9,6 +9,7 @@
   cursor: pointer;
   margin: 0 1rem;
   display: inline-block;
+  position: relative;
 
   img {
     width: 100%;
@@ -29,9 +30,21 @@
     );
   }
 
+  .averageVote {
+    @include flex-center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem;
+    border-radius: 35%;
+    width: 25px;
+    height: 25px;
+    background-color: $foreground;
+    color: $red;
+  }
+
   .contentContainer {
     padding: 0.4rem;
-    position: relative;
 
     h2 {
       font-size: 2rem;
@@ -43,19 +56,6 @@
     h4 {
       color: $fontSecondary;
       font-size: 0.7rem;
-    }
-
-    span {
-      @include flex-center;
-      position: absolute;
-      top: 0;
-      right: 5px;
-      padding: 0.5rem;
-      border-radius: 50%;
-      width: 25px;
-      height: 25px;
-      background-color: $foreground;
-      color: $red;
     }
 
     .additionalInfoWrapper {

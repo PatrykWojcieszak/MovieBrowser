@@ -5,10 +5,13 @@
     }}"
     alt="movieCard"
   />
+  <span class="averageVote">{{ movie.vote_average }}</span>
   <div class="contentContainer">
     <h2>{{ movie.title || movie.name }}</h2>
-    <h4>{{ movie.release_date }} | Adventure, Drama, Sci-FI</h4>
-    <span>{{ movie.vote_average }}</span>
+    <h4>
+      <span *ngIf="movie.release_date">{{ movie.release_date }} | </span>
+      <span *ngFor="let genre of movie.genre_ids">{{ genre | GetGenre }}</span>
+    </h4>
     <div class="additionalInfoWrapper">
       <h3>Summary</h3>
       <p>
