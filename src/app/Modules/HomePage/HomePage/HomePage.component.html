@@ -1,4 +1,16 @@
 <div class="HomePage">
+  <div class="row">
+    <app-Button
+      btnName="Movie"
+      [isSelected]="entertainmentType === 'movie'"
+      (btnClicked)="typeChanged('movie')"
+    ></app-Button>
+    <app-Button
+      btnName="TV"
+      [isSelected]="entertainmentType === 'tv'"
+      (btnClicked)="typeChanged('tv')"
+    ></app-Button>
+  </div>
   <app-Input
     placeholder="Search..."
     [showIcon]="true"
@@ -8,12 +20,12 @@
     <ng-container *ngIf="isSearch">
       <app-MovieSearchInfo
         *ngFor="let item of searchResult.results"
-        [movie]="item"
+        [entertainment]="item"
       ></app-MovieSearchInfo>
     </ng-container>
 
     <ng-container *ngIf="!isSearch">
-      <div class="movieListContainer" *ngIf="trendingMovies">
+      <div class="movieListContainer" *ngIf="trending">
         <div class="row">
           <h2>Trending</h2>
           <app-Button
@@ -29,54 +41,44 @@
         </div>
         <div class="movieListWrapper">
           <app-MovieCard
-            *ngFor="let item of trendingMovies.results"
-            [movie]="item"
+            *ngFor="let item of trending.results"
+            [entertainment]="item"
           ></app-MovieCard>
         </div>
       </div>
 
-      <div class="movieListContainer" *ngIf="popularMovies">
+      <div class="movieListContainer" *ngIf="popular">
         <div class="row">
           <h2>Popular</h2>
-          <app-Button
-            btnName="Movie"
-            [isSelected]="popularMovieSelected"
-            (btnClicked)="popularBtn('movie')"
-          ></app-Button>
-          <app-Button
-            btnName="TV"
-            [isSelected]="popularTvSelected"
-            (btnClicked)="popularBtn('tv')"
-          ></app-Button>
         </div>
         <div class="movieListWrapper">
           <app-MovieCard
-            *ngFor="let item of popularMovies.results"
-            [movie]="item"
+            *ngFor="let item of popular.results"
+            [entertainment]="item"
           ></app-MovieCard>
         </div>
       </div>
 
-      <div class="movieListContainer" *ngIf="upcomingMovies">
+      <div class="movieListContainer" *ngIf="upcoming">
         <div class="row">
           <h2>Upcoming</h2>
         </div>
         <div class="movieListWrapper">
           <app-MovieCard
-            *ngFor="let item of upcomingMovies.results"
-            [movie]="item"
+            *ngFor="let item of upcoming.results"
+            [entertainment]="item"
           ></app-MovieCard>
         </div>
       </div>
 
-      <div class="movieListContainer" *ngIf="topRatedMovies">
+      <div class="movieListContainer" *ngIf="topRated">
         <div class="row">
           <h2>Top Rated</h2>
         </div>
         <div class="movieListWrapper">
           <app-MovieCard
-            *ngFor="let item of topRatedMovies.results"
-            [movie]="item"
+            *ngFor="let item of topRated.results"
+            [entertainment]="item"
           ></app-MovieCard>
         </div>
       </div>

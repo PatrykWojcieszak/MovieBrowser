@@ -1,21 +1,23 @@
 <div class="movieCard">
   <img
-    src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{
-      movie.backdrop_path
-    }}"
+    src="https://image.tmdb.org/t/p/w500/{{ entertainment.backdrop_path }}"
     alt="movieCard"
   />
-  <span class="averageVote">{{ movie.vote_average }}</span>
+  <span class="averageVote">{{ entertainment.vote_average }}</span>
   <div class="contentContainer">
-    <h2>{{ movie.title || movie.name }}</h2>
+    <h2>{{ entertainment.title || entertainment.name }}</h2>
     <h4>
-      <span *ngIf="movie.release_date">{{ movie.release_date }} | </span>
-      <span *ngFor="let genre of movie.genre_ids">{{ genre | GetGenre }}</span>
+      <span *ngIf="entertainment.release_date || entertainment.first_air_date"
+        >{{ entertainment.release_date || entertainment.first_air_date }} |
+      </span>
+      <span *ngFor="let genre of entertainment.genre_ids">{{
+        genre | GetGenre
+      }}</span>
     </h4>
     <div class="additionalInfoWrapper">
       <h3>Summary</h3>
       <p>
-        {{ movie.overview | ShortenString: 100 }}
+        {{ entertainment.overview | ShortenString: 100 }}
       </p>
     </div>
   </div>

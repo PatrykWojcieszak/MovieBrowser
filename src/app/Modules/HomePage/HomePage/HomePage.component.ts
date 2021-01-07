@@ -1,89 +1,71 @@
 import { Component, OnInit } from '@angular/core';
 import { HomePageService } from '../HomePage.service';
-import IMovie from 'src/app/Models/IMovie';
+import IEntertainment from 'src/app/Models/IEntertainment';
 import IQueryRes from 'src/app/Models/IQueryRes';
+
+const initial = {
+  total_pages: 0,
+  results: [],
+  total_results: 0,
+  page: 0,
+};
+
 @Component({
   selector: 'app-HomePage',
   templateUrl: './HomePage.component.html',
   styleUrls: ['./HomePage.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-  trendingMovies: IQueryRes<IMovie>;
-  popularMovies: IQueryRes<IMovie>;
-  topRatedMovies: IQueryRes<IMovie>;
-  upcomingMovies: IQueryRes<IMovie>;
-  searchResult: IQueryRes<IMovie>;
+  trending: IQueryRes<IEntertainment>;
+  popular: IQueryRes<IEntertainment>;
+  topRated: IQueryRes<IEntertainment>;
+  upcoming: IQueryRes<IEntertainment>;
+  searchResult: IQueryRes<IEntertainment>;
 
   trendingDaySelected = true;
   trendingThisWeekSelected = false;
 
-  popularMovieSelected = true;
-  popularTvSelected = false;
+  entertainmentType: string = 'movie';
 
   isSearch = false;
 
   constructor(private homePageService: HomePageService) {
-    this.trendingMovies = {
-      total_pages: 0,
-      results: [],
-      total_results: 0,
-      page: 0,
-    };
-
-    this.popularMovies = {
-      total_pages: 0,
-      results: [],
-      total_results: 0,
-      page: 0,
-    };
-
-    this.topRatedMovies = {
-      total_pages: 0,
-      results: [],
-      total_results: 0,
-      page: 0,
-    };
-
-    this.upcomingMovies = {
-      total_pages: 0,
-      results: [],
-      total_results: 0,
-      page: 0,
-    };
-
-    this.searchResult = {
-      total_pages: 0,
-      results: [],
-      total_results: 0,
-      page: 0,
-    };
+    this.trending = initial;
+    this.popular = initial;
+    this.topRated = initial;
+    this.upcoming = initial;
+    this.searchResult = initial;
   }
 
   ngOnInit() {
-    this.homePageService.fetchTrendingMovies('day');
-    this.homePageService.fetchTopRatedMovies();
-    this.homePageService.fetchPopularMovies('movie');
-    this.homePageService.fetchUpcomingMovies();
+    this.fetchData();
 
-    this.homePageService.getTrendingMovies.subscribe((trendingMovies) => {
-      this.trendingMovies = trendingMovies;
+    this.homePageService.getTrending.subscribe((trending) => {
+      this.trending = trending;
     });
 
-    this.homePageService.getPopularMovies.subscribe((popularMovies) => {
-      this.popularMovies = popularMovies;
+    this.homePageService.getPopular.subscribe((popular) => {
+      this.popular = popular;
     });
 
-    this.homePageService.getTopRatedMovies.subscribe((topRatedMovies) => {
-      this.topRatedMovies = topRatedMovies;
+    this.homePageService.getTopRated.subscribe((topRated) => {
+      this.topRated = topRated;
     });
 
-    this.homePageService.getUpcomingMovies.subscribe((upcomingMovies) => {
-      this.upcomingMovies = upcomingMovies;
+    this.homePageService.getUpcoming.subscribe((upcoming) => {
+      this.upcoming = upcoming;
     });
 
     this.homePageService.getSearchValue.subscribe((searchRes) => {
       this.searchResult = searchRes;
     });
+  }
+
+  fetchData() {
+    this.homePageService.fetchTrending('day');
+    this.homePageService.fetchTopRated(this.entertainmentType);
+    this.homePageService.fetchPopular(this.entertainmentType);
+    this.homePageService.fetchUpcoming(this.entertainmentType);
   }
 
   searchInput(searchValue: string) {
@@ -103,18 +85,11 @@ export class HomePageComponent implements OnInit {
       this.trendingThisWeekSelected = true;
     }
 
-    this.homePageService.fetchTrendingMovies(timeWindow);
+    this.homePageService.fetchTrending(timeWindow);
   }
 
-  popularBtn(type: string) {
-    if (type === 'movie') {
-      this.popularMovieSelected = true;
-      this.popularTvSelected = false;
-    } else {
-      this.popularMovieSelected = false;
-      this.popularTvSelected = true;
-    }
-
-    this.homePageService.fetchPopularMovies(type);
+  typeChanged(type: string) {
+    this.entertainmentType = type;
+    this.fetchData();
   }
 }

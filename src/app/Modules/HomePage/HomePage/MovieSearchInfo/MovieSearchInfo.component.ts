@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import IMovie from 'src/app/Models/IMovie';
+import IEntertainment from 'src/app/Models/IEntertainment';
 
 @Component({
   selector: 'app-MovieSearchInfo',
@@ -7,11 +7,12 @@ import IMovie from 'src/app/Models/IMovie';
   styleUrls: ['./MovieSearchInfo.component.scss'],
 })
 export class MovieSearchInfoComponent implements OnInit {
-  @Input() movie: IMovie = {
+  @Input() entertainment: IEntertainment = {
     poster_path: '',
     adult: false,
     overview: '',
     release_date: '',
+    first_air_date: '',
     genre_ids: [],
     id: 0,
     original_title: '',
@@ -30,8 +31,8 @@ export class MovieSearchInfoComponent implements OnInit {
   ngOnInit() {}
 
   getImgPath() {
-    if (this.movie.backdrop_path)
-      return `https://image.tmdb.org/t/p/w500/${this.movie.backdrop_path}`;
+    if (this.entertainment.backdrop_path)
+      return `https://image.tmdb.org/t/p/w500/${this.entertainment.backdrop_path}`;
     else
       return 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/No_picture_available.png/401px-No_picture_available.png';
   }

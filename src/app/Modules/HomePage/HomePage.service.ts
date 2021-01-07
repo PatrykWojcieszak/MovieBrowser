@@ -1,10 +1,10 @@
 import { MovieApiService } from './../../Core/API/MovieApi.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import IMovie from 'src/app/Models/IMovie';
+import IEntertainment from 'src/app/Models/IEntertainment';
 import IQueryRes from 'src/app/Models/IQueryRes';
 
-const initial: IQueryRes<IMovie> = {
+const initial: IQueryRes<IEntertainment> = {
   page: 0,
   results: [],
   total_pages: 0,
@@ -15,61 +15,63 @@ const initial: IQueryRes<IMovie> = {
   providedIn: 'root',
 })
 export class HomePageService {
-  private _trendingMovies = new BehaviorSubject<IQueryRes<IMovie>>(initial);
-  private _topRatedMovies = new BehaviorSubject<IQueryRes<IMovie>>(initial);
-  private _popularMovies = new BehaviorSubject<IQueryRes<IMovie>>(initial);
-  private _upcomingMovies = new BehaviorSubject<IQueryRes<IMovie>>(initial);
-  private _searchResult = new BehaviorSubject<IQueryRes<IMovie>>(initial);
+  private _trending = new BehaviorSubject<IQueryRes<IEntertainment>>(initial);
+  private _topRated = new BehaviorSubject<IQueryRes<IEntertainment>>(initial);
+  private _popular = new BehaviorSubject<IQueryRes<IEntertainment>>(initial);
+  private _upcoming = new BehaviorSubject<IQueryRes<IEntertainment>>(initial);
+  private _searchResult = new BehaviorSubject<IQueryRes<IEntertainment>>(
+    initial
+  );
 
-  readonly trendingMovies = this._trendingMovies.asObservable();
-  readonly topRatedMovies = this._topRatedMovies.asObservable();
-  readonly popularMovies = this._popularMovies.asObservable();
-  readonly upcomingMovies = this._upcomingMovies.asObservable();
-  readonly searchResult = this._upcomingMovies.asObservable();
+  readonly trendingMovies = this._trending.asObservable();
+  readonly topRatedMovies = this._topRated.asObservable();
+  readonly popularMovies = this._popular.asObservable();
+  readonly upcomingMovies = this._upcoming.asObservable();
+  readonly searchResult = this._upcoming.asObservable();
 
   constructor(private movieApi: MovieApiService) {}
 
-  get getTrendingMovies() {
-    return this._trendingMovies.asObservable();
+  get getTrending() {
+    return this._trending.asObservable();
   }
 
-  get getUpcomingMovies() {
-    return this._upcomingMovies.asObservable();
+  get getUpcoming() {
+    return this._upcoming.asObservable();
   }
 
-  get getPopularMovies() {
-    return this._popularMovies.asObservable();
+  get getPopular() {
+    return this._popular.asObservable();
   }
 
-  get getTopRatedMovies() {
-    return this._topRatedMovies.asObservable();
+  get getTopRated() {
+    return this._topRated.asObservable();
   }
 
   get getSearchValue() {
     return this._searchResult.asObservable();
   }
 
-  public fetchTrendingMovies(timeWindow: string) {
+  public fetchTrending(timeWindow: string) {
     this.movieApi.GetTrending(timeWindow).subscribe((res: any) => {
-      this._trendingMovies.next(res);
+      this._trending.next(res);
     });
   }
 
-  public fetchUpcomingMovies() {
-    this.movieApi.GetUpcomingMovies().subscribe((res: any) => {
-      this._upcomingMovies.next(res);
+  public fetchUpcoming(type: string) {
+    this.movieApi.GetUpcomingMovies(type).subscribe((res: any) => {
+      this._upcoming.next(res);
     });
   }
 
-  public fetchTopRatedMovies() {
-    this.movieApi.GetTopRatedMovies().subscribe((res: any) => {
-      this._topRatedMovies.next(res);
+  public fetchTopRated(type: string) {
+    this.movieApi.GetTopRatedMovies(type).subscribe((res: any) => {
+      this._topRated.next(res);
     });
   }
 
-  public fetchPopularMovies(type: string) {
+  public fetchPopular(type: string) {
     this.movieApi.GetPopularMovies(type).subscribe((res: any) => {
-      this._popularMovies.next(res);
+      this._popular.next(res);
     });
   }
 

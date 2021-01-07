@@ -3,10 +3,12 @@
     <img src="{{ getImgPath() }}" alt="movie" />
   </div>
   <div class="content">
-    <h2>{{ movie.title || movie.name }}</h2>
-    <h4 *ngIf="movie.release_date">{{ movie.release_date }}</h4>
+    <h2>{{ entertainment.title || entertainment.name }}</h2>
+    <h4 *ngIf="entertainment.release_date || entertainment.first_air_date">
+      {{ entertainment.release_date || entertainment.first_air_date }}
+    </h4>
     <p>
-      {{ movie.overview }}
+      {{ entertainment.overview }}
     </p>
   </div>
 </div>

@@ -3,6 +3,15 @@
 .HomePage {
   padding: 2rem 4rem;
 
+  .row {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+
+  .row > * {
+    margin-right: 2rem;
+  }
+
   .contentContainer {
     @include flex-column;
     margin-top: 4rem;

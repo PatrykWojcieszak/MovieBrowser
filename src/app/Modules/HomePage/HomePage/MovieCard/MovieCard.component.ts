@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import IMovie from 'src/app/Models/IMovie';
+import IEntertainment from 'src/app/Models/IEntertainment';
 
 @Component({
   selector: 'app-MovieCard',
@@ -7,11 +7,12 @@ import IMovie from 'src/app/Models/IMovie';
   styleUrls: ['./MovieCard.component.scss'],
 })
 export class MovieCardComponent implements OnInit {
-  @Input() movie: IMovie = {
+  @Input() entertainment: IEntertainment = {
     poster_path: '',
     adult: false,
     overview: '',
     release_date: '',
+    first_air_date: '',
     genre_ids: [],
     id: 0,
     original_title: '',

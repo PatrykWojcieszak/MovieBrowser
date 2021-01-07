@@ -1,8 +1,9 @@
-interface IMovie {
+interface IEntertainment {
   poster_path: string;
   adult: boolean;
   overview: string;
   release_date: string;
+  first_air_date: string;
   genre_ids: number[];
   id: number;
   original_title: string;
@@ -16,4 +17,4 @@ interface IMovie {
   vote_average: number;
 }
 
-export default IMovie;
+export default IEntertainment;
