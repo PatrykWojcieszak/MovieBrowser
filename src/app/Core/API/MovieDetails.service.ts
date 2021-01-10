@@ -14,7 +14,7 @@ export class MovieDetailsService {
   constructor(private API: APIService) {}
 
   public GetDetails(id: string) {
-    return this.API.Get(this.API.BuildAddress(`/movie${id}`));
+    return this.API.Get(this.API.BuildAddress(`/movie/${id}`));
   }
 
   public GetCredits(id: string) {
