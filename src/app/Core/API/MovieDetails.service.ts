@@ -5,6 +5,7 @@ import { APIService } from './API.service';
   providedIn: 'root',
 })
 export class MovieDetailsService {
+  private BASE = '/movie/';
   private GET_CREDITS: string = '/credits';
   private GET_RECOMMENDATIONS: string = '/recommendations';
   private GET_KEYWORDS: string = '/keywords';
@@ -18,25 +19,25 @@ export class MovieDetailsService {
 
   public GetCredits(id: string) {
     return this.API.Get(
-      this.API.BuildAddress(`/movie${id}${this.GET_CREDITS}`)
+      this.API.BuildAddress(`${this.BASE}${id}${this.GET_CREDITS}`)
     );
   }
 
   public GetRecommendations(id: string) {
     return this.API.Get(
-      this.API.BuildAddress(`/movie${id}${this.GET_RECOMMENDATIONS}`)
+      this.API.BuildAddress(`${this.BASE}${id}${this.GET_RECOMMENDATIONS}`)
     );
   }
 
   public GetKeyWords(id: string) {
     return this.API.Get(
-      this.API.BuildAddress(`/movie${id}${this.GET_KEYWORDS}`)
+      this.API.BuildAddress(`${this.BASE}${id}${this.GET_KEYWORDS}`)
     );
   }
 
   public GetExternalIds(id: string) {
     return this.API.Get(
-      this.API.BuildAddress(`/movie${id}${this.GET_EXTERNAL_IDS}`)
+      this.API.BuildAddress(`${this.BASE}${id}${this.GET_EXTERNAL_IDS}`)
     );
   }
 }

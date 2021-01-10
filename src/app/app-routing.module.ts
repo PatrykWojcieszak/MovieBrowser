@@ -1,4 +1,4 @@
-import { EntertainmentDetailsComponent } from './Modules/EntertainmentDetails/EntertainmentDetails.component';
+import { EntertainmentDetailsComponent } from './Modules/EntertainmentDetails/EntertainmentDetails/EntertainmentDetails.component';
 import { HomePageComponent } from './Modules/HomePage/HomePage/HomePage.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';

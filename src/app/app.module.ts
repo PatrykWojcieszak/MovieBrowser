@@ -1,4 +1,4 @@
-import { EntertainmentDetailsComponent } from './Modules/EntertainmentDetails/EntertainmentDetails.component';
+import { EntertainmentDetailsComponent } from './Modules/EntertainmentDetails/EntertainmentDetails/EntertainmentDetails.component';
 import { MovieSearchInfoComponent } from './Modules/HomePage/HomePage/MovieSearchInfo/MovieSearchInfo.component';
 import { GetGenrePipe } from './Shared/Pipes/GetGenre.pipe';
 import { ShortenStringPipe } from './Shared/Pipes/ShortenString.pipe';
