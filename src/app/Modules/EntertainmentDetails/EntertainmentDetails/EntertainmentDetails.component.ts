@@ -2,6 +2,8 @@ import { EntertainmentDetailsService } from './../EntertainmentDetails.service';
 import { Component, OnInit } from '@angular/core';
 import IMovieDetails from 'src/app/Models/IMovieDetails';
 import { ActivatedRoute, Params } from '@angular/router';
+import IEntertainment from 'src/app/Models/IEntertainment';
+import IQueryRes from 'src/app/Models/IQueryRes';
 
 const movieDetailsInitial = {
   adult: false,
@@ -31,6 +33,13 @@ const movieDetailsInitial = {
   vote_count: 0,
 };
 
+const entertainmentInitial: IQueryRes<IEntertainment> = {
+  page: 0,
+  results: [],
+  total_pages: 0,
+  total_results: 0,
+};
+
 @Component({
   selector: 'app-EntertainmentDetails',
   templateUrl: './EntertainmentDetails.component.html',
@@ -38,6 +47,7 @@ const movieDetailsInitial = {
 })
 export class EntertainmentDetailsComponent implements OnInit {
   movieDetails: IMovieDetails = movieDetailsInitial;
+  recommendations: IQueryRes<IEntertainment> = entertainmentInitial;
   movieId: string = '';
 
   constructor(
@@ -51,10 +61,14 @@ export class EntertainmentDetailsComponent implements OnInit {
     });
 
     this.dataService.fetchMovieDetails(this.movieId);
+    this.dataService.fetchRecommendations(this.movieId);
 
     this.dataService.getMovieDetails.subscribe((movieDetails) => {
-      console.log(movieDetails);
       this.movieDetails = movieDetails;
+    });
+
+    this.dataService.getRecommendations.subscribe((recommendations) => {
+      this.recommendations = recommendations;
     });
   }
 }

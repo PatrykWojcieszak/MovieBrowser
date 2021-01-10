@@ -13,4 +13,13 @@
     ></app-MainDetails>
     <app-SubDetails></app-SubDetails>
   </div>
+  <div class="sectionContainer">
+    <h1>Recommendations</h1>
+    <div class="sectionListWrapper">
+      <app-MovieCard
+        *ngFor="let item of recommendations.results"
+        [entertainment]="item"
+      ></app-MovieCard>
+    </div>
+  </div>
 </div>

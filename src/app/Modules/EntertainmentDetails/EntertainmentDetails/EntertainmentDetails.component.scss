@@ -11,4 +11,20 @@
   .row > * {
     margin-right: 2rem;
   }
+
+  .sectionContainer {
+    margin-top: 3rem;
+
+    h1 {
+      color: $fontPrimary;
+      font-weight: 100;
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .sectionListWrapper {
+      overflow-x: scroll;
+      display: flex;
+    }
+  }
 }
