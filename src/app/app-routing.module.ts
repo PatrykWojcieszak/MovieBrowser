@@ -1,3 +1,4 @@
+import { EntertainmentDetailsComponent } from './Modules/EntertainmentDetails/EntertainmentDetails.component';
 import { HomePageComponent } from './Modules/HomePage/HomePage/HomePage.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -6,6 +7,10 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomePageComponent,
+  },
+  {
+    path: 'home/:type/:id',
+    component: EntertainmentDetailsComponent,
   },
   {
     path: '**',
