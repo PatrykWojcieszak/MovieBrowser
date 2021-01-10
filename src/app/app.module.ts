@@ -1,3 +1,4 @@
+import { SubDetailsComponent } from './Modules/EntertainmentDetails/EntertainmentDetails/SubDetails/SubDetails.component';
 import { MainDetailsComponent } from './Modules/EntertainmentDetails/EntertainmentDetails/MainDetails/MainDetails.component';
 import { HeaderComponent } from './Modules/EntertainmentDetails/EntertainmentDetails/Header/Header.component';
 import { EntertainmentDetailsComponent } from './Modules/EntertainmentDetails/EntertainmentDetails/EntertainmentDetails.component';
@@ -29,6 +30,7 @@ import { ButtonComponent } from './Shared/UI/Button/Button.component';
     EntertainmentDetailsComponent,
     HeaderComponent,
     MainDetailsComponent,
+    SubDetailsComponent,
   ],
   imports: [
     BrowserModule,
