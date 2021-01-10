@@ -1,3 +1,4 @@
+import { HeaderComponent } from './Modules/EntertainmentDetails/EntertainmentDetails/Header/Header.component';
 import { EntertainmentDetailsComponent } from './Modules/EntertainmentDetails/EntertainmentDetails/EntertainmentDetails.component';
 import { MovieSearchInfoComponent } from './Modules/HomePage/HomePage/MovieSearchInfo/MovieSearchInfo.component';
 import { GetGenrePipe } from './Shared/Pipes/GetGenre.pipe';
@@ -25,6 +26,7 @@ import { ButtonComponent } from './Shared/UI/Button/Button.component';
     GetGenrePipe,
     MovieSearchInfoComponent,
     EntertainmentDetailsComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
