@@ -37,4 +37,15 @@
 }
 
 .externalId {
+  text-decoration: none;
+
+  fa-icon {
+    font-size: 2rem;
+    color: $fontSecondary;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: $red;
+    }
+  }
 }
