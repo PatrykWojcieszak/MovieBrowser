@@ -2,4 +2,9 @@
 
 .mainContainer {
   padding: 2rem 12rem;
+
+  .row {
+    display: flex;
+    margin-top: 3rem;
+  }
 }
