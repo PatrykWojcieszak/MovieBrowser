@@ -11,7 +11,12 @@
       [overview]="movieDetails.overview"
       [img]="movieDetails.poster_path"
     ></app-MainDetails>
-    <app-SubDetails></app-SubDetails>
+    <app-SubDetails
+      [budget]="movieDetails.budget"
+      [revenue]="movieDetails.revenue"
+      [status]="movieDetails.status"
+      [language]="movieDetails.spoken_languages[0].name"
+    ></app-SubDetails>
   </div>
   <div class="sectionContainer">
     <h1>Cast</h1>
