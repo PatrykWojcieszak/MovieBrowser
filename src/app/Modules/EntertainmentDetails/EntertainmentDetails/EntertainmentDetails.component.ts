@@ -4,6 +4,7 @@ import IMovieDetails from 'src/app/Models/IMovieDetails';
 import { ActivatedRoute, Params } from '@angular/router';
 import IEntertainment from 'src/app/Models/IEntertainment';
 import IQueryRes from 'src/app/Models/IQueryRes';
+import ICredits from 'src/app/Models/ICredits';
 
 const movieDetailsInitial = {
   adult: false,
@@ -40,6 +41,12 @@ const entertainmentInitial: IQueryRes<IEntertainment> = {
   total_results: 0,
 };
 
+const creditsInitial: ICredits = {
+  id: 0,
+  cast: [],
+  crew: [],
+};
+
 @Component({
   selector: 'app-EntertainmentDetails',
   templateUrl: './EntertainmentDetails.component.html',
@@ -48,6 +55,7 @@ const entertainmentInitial: IQueryRes<IEntertainment> = {
 export class EntertainmentDetailsComponent implements OnInit {
   movieDetails: IMovieDetails = movieDetailsInitial;
   recommendations: IQueryRes<IEntertainment> = entertainmentInitial;
+  credits: ICredits = creditsInitial;
   movieId: string = '';
 
   constructor(
@@ -62,6 +70,7 @@ export class EntertainmentDetailsComponent implements OnInit {
 
     this.dataService.fetchMovieDetails(this.movieId);
     this.dataService.fetchRecommendations(this.movieId);
+    this.dataService.fetchCredits(this.movieId);
 
     this.dataService.getMovieDetails.subscribe((movieDetails) => {
       this.movieDetails = movieDetails;
@@ -69,6 +78,10 @@ export class EntertainmentDetailsComponent implements OnInit {
 
     this.dataService.getRecommendations.subscribe((recommendations) => {
       this.recommendations = recommendations;
+    });
+
+    this.dataService.getCredits.subscribe((credits) => {
+      this.credits = credits;
     });
   }
 }

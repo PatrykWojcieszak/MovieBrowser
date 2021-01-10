@@ -4,6 +4,7 @@ import IMovieDetails from 'src/app/Models/IMovieDetails';
 import { BehaviorSubject } from 'rxjs';
 import IEntertainment from 'src/app/Models/IEntertainment';
 import IQueryRes from 'src/app/Models/IQueryRes';
+import ICredits from 'src/app/Models/ICredits';
 
 const movieDetailsInitial = {
   adult: false,
@@ -40,6 +41,12 @@ const entertainmentInitial: IQueryRes<IEntertainment> = {
   total_results: 0,
 };
 
+const creditsInitial: ICredits = {
+  id: 0,
+  cast: [],
+  crew: [],
+};
+
 @Injectable({
   providedIn: 'root',
 })
@@ -47,12 +54,16 @@ export class EntertainmentDetailsService {
   private _movieDetails = new BehaviorSubject<IMovieDetails>(
     movieDetailsInitial
   );
+
   private _recommended = new BehaviorSubject<IQueryRes<IEntertainment>>(
     entertainmentInitial
   );
 
+  private _credits = new BehaviorSubject<ICredits>(creditsInitial);
+
   readonly movieDetails = this._movieDetails.asObservable();
   readonly recommended = this._recommended.asObservable();
+  readonly credits = this._credits.asObservable();
 
   constructor(private apiService: MovieDetailsService) {}
 
@@ -64,6 +75,10 @@ export class EntertainmentDetailsService {
     return this._recommended.asObservable();
   }
 
+  get getCredits() {
+    return this._credits.asObservable();
+  }
+
   public fetchMovieDetails(id: string) {
     this.apiService.GetDetails(id).subscribe((res: any) => {
       this._movieDetails.next(res);
@@ -73,6 +88,12 @@ export class EntertainmentDetailsService {
   public fetchRecommendations(id: string) {
     this.apiService.GetRecommendations(id).subscribe((res: any) => {
       this._recommended.next(res);
+    });
+  }
+
+  public fetchCredits(id: string) {
+    this.apiService.GetCredits(id).subscribe((res: any) => {
+      this._credits.next(res);
     });
   }
 }

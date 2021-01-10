@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InputComponent } from './Shared/UI/Input/Input.component';
 import { ButtonComponent } from './Shared/UI/Button/Button.component';
+import { CreditCardComponent } from './Modules/EntertainmentDetails/EntertainmentDetails/CreditCard/CreditCard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { ButtonComponent } from './Shared/UI/Button/Button.component';
     HeaderComponent,
     MainDetailsComponent,
     SubDetailsComponent,
+    CreditCardComponent,
   ],
   imports: [
     BrowserModule,

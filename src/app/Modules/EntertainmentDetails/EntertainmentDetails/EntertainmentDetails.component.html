@@ -14,6 +14,15 @@
     <app-SubDetails></app-SubDetails>
   </div>
   <div class="sectionContainer">
+    <h1>Cast</h1>
+    <div class="sectionListWrapper">
+      <app-CreditCard
+        *ngFor="let item of credits.cast"
+        [credit]="item"
+      ></app-CreditCard>
+    </div>
+  </div>
+  <div class="sectionContainer">
     <h1>Recommendations</h1>
     <div class="sectionListWrapper">
       <app-MovieCard

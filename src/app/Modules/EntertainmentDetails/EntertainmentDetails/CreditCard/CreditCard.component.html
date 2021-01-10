@@ -1,0 +1,14 @@
+<div class="creditCard">
+  <img
+    src="{{
+      credit.profile_path
+        ? 'https://image.tmdb.org/t/p/w500/' + credit.profile_path
+        : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW6wRWOjhYe9HP1hvqWiY_x4tDvhbtNcvKUw&usqp=CAU'
+    }}"
+    alt="credit"
+  />
+  <div class="detailsContainer">
+    <h1>{{ credit.name }}</h1>
+    <h4>{{ credit.character }}</h4>
+  </div>
+</div>
