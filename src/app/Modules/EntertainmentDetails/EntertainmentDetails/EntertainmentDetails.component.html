@@ -1,7 +1,16 @@
 <div class="mainContainer">
-  <app-Header></app-Header>
+  <app-Header
+    [title]="movieDetails.title"
+    [date]="movieDetails.release_date"
+    [genres]="movieDetails.genres"
+    [runtime]="movieDetails.runtime"
+    [avgVote]="movieDetails.vote_average"
+  ></app-Header>
   <div class="row">
-    <app-MainDetails></app-MainDetails>
+    <app-MainDetails
+      [overview]="movieDetails.overview"
+      [img]="movieDetails.poster_path"
+    ></app-MainDetails>
     <app-SubDetails></app-SubDetails>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-MainDetails',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./MainDetails.component.scss'],
 })
 export class MainDetailsComponent implements OnInit {
+  @Input() img: string = '';
+  @Input() overview: string = '';
+
   constructor() {}
 
   ngOnInit() {}
