@@ -1,16 +1,4 @@
 <div class="HomePage">
-  <div class="row">
-    <app-Button
-      btnName="Movie"
-      [isSelected]="entertainmentType === 'movie'"
-      (btnClicked)="typeChanged('movie')"
-    ></app-Button>
-    <app-Button
-      btnName="TV"
-      [isSelected]="entertainmentType === 'tv'"
-      (btnClicked)="typeChanged('tv')"
-    ></app-Button>
-  </div>
   <app-Input
     placeholder="Search..."
     [showIcon]="true"

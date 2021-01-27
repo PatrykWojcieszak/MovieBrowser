@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import IEntertainment from 'src/app/Models/IEntertainment';
 
 @Component({
@@ -26,7 +27,9 @@ export class MovieCardComponent implements OnInit {
     vote_average: 0,
   };
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
+
+  onCardClick(id: number) {}
 }
