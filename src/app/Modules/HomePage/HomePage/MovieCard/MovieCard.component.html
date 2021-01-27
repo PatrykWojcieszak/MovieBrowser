@@ -1,6 +1,10 @@
 <div class="movieCard">
   <img
-    src="https://image.tmdb.org/t/p/w500/{{ entertainment.backdrop_path }}"
+    [src]="
+      entertainment.backdrop_path
+        ? 'https://image.tmdb.org/t/p/w500/' + entertainment.backdrop_path
+        : 'https://fpae.pt/backup/20181025/wp/wp-content/plugins/post-slider-carousel/images/no-image-available-grid.jpg'
+    "
     alt="movieCard"
   />
   <span class="averageVote">{{ entertainment.vote_average }}</span>
