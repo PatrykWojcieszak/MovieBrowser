@@ -57,20 +57,20 @@ export class HomePageService {
     });
   }
 
-  public fetchUpcoming(type: string) {
-    this.movieApi.GetUpcomingMovies(type).subscribe((res: any) => {
+  public fetchUpcoming() {
+    this.movieApi.GetUpcomingMovies().subscribe((res: any) => {
       this._upcoming.next(res);
     });
   }
 
-  public fetchTopRated(type: string) {
-    this.movieApi.GetTopRatedMovies(type).subscribe((res: any) => {
+  public fetchTopRated() {
+    this.movieApi.GetTopRatedMovies().subscribe((res: any) => {
       this._topRated.next(res);
     });
   }
 
-  public fetchPopular(type: string) {
-    this.movieApi.GetPopularMovies(type).subscribe((res: any) => {
+  public fetchPopular() {
+    this.movieApi.GetPopularMovies().subscribe((res: any) => {
       this._popular.next(res);
     });
   }

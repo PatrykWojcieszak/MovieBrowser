@@ -1,0 +1,41 @@
+<div class="mainDetails">
+  <img src="https://image.tmdb.org/t/p/w500/{{ img }}" alt="poster" />
+  <div class="content">
+    <p>
+      {{ overview }}
+    </p>
+    <div class="row">
+      <div class="creator">
+        <h3>Rock Roman Wough</h3>
+        <h4>Director</h4>
+      </div>
+      <div class="creator">
+        <h3>Rock Roman Wough</h3>
+        <h4>Director</h4>
+      </div>
+    </div>
+    <div class="row">
+      <a
+        class="externalId"
+        href="https://instagram.com/{{ instagramId }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><fa-icon [icon]="faInstagram"></fa-icon
+      ></a>
+      <a
+        class="externalId"
+        href="https://facebook.com/{{ facebookId }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><fa-icon [icon]="faFacebook"></fa-icon
+      ></a>
+      <a
+        class="externalId"
+        href="https://twitter.com/{{ twitterId }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><fa-icon [icon]="faTwitter"></fa-icon
+      ></a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="mainContainer">
+  <app-Header
+    [title]="movieDetails.title"
+    [date]="movieDetails.release_date"
+    [genres]="movieDetails.genres"
+    [runtime]="movieDetails.runtime"
+    [avgVote]="movieDetails.vote_average"
+  ></app-Header>
+  <div class="row">
+    <app-MainDetails
+      [overview]="movieDetails.overview"
+      [img]="movieDetails.poster_path"
+      [facebookId]="externalIds.facebook_id"
+      [instagramId]="externalIds.instagram_id"
+      [twitterId]="externalIds.twitter_id"
+    ></app-MainDetails>
+    <app-SubDetails
+      [budget]="movieDetails.budget"
+      [revenue]="movieDetails.revenue"
+      [status]="movieDetails.status"
+      [language]="movieDetails.spoken_languages[0].name"
+    ></app-SubDetails>
+  </div>
+  <div class="sectionContainer">
+    <h1>Cast</h1>
+    <div class="sectionListWrapper">
+      <app-CreditCard
+        *ngFor="let item of credits.cast"
+        [credit]="item"
+      ></app-CreditCard>
+    </div>
+  </div>
+  <div class="sectionContainer">
+    <h1>Recommendations</h1>
+    <div class="sectionListWrapper">
+      <app-MovieCard
+        *ngFor="let item of recommendations.results"
+        [entertainment]="item"
+      ></app-MovieCard>
+    </div>
+  </div>
+</div>

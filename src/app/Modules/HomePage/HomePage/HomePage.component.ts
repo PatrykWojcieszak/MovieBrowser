@@ -25,8 +25,6 @@ export class HomePageComponent implements OnInit {
   trendingDaySelected = true;
   trendingThisWeekSelected = false;
 
-  entertainmentType: string = 'movie';
-
   isSearch = false;
 
   constructor(private homePageService: HomePageService) {
@@ -63,9 +61,9 @@ export class HomePageComponent implements OnInit {
 
   fetchData() {
     this.homePageService.fetchTrending('day');
-    this.homePageService.fetchTopRated(this.entertainmentType);
-    this.homePageService.fetchPopular(this.entertainmentType);
-    this.homePageService.fetchUpcoming(this.entertainmentType);
+    this.homePageService.fetchTopRated();
+    this.homePageService.fetchPopular();
+    this.homePageService.fetchUpcoming();
   }
 
   searchInput(searchValue: string) {
@@ -86,10 +84,5 @@ export class HomePageComponent implements OnInit {
     }
 
     this.homePageService.fetchTrending(timeWindow);
-  }
-
-  typeChanged(type: string) {
-    this.entertainmentType = type;
-    this.fetchData();
   }
 }
