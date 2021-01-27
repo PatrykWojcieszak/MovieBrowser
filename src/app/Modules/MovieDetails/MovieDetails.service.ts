@@ -1,11 +1,11 @@
-import { MovieDetailsService } from './../../Core/API/MovieDetails.service';
 import { Injectable } from '@angular/core';
 import IMovieDetails from 'src/app/Models/IMovieDetails';
 import { BehaviorSubject } from 'rxjs';
-import IEntertainment from 'src/app/Models/IEntertainment';
+import IMovie from 'src/app/Models/IMovie';
 import IQueryRes from 'src/app/Models/IQueryRes';
 import ICredits from 'src/app/Models/ICredits';
 import IExternalIds from 'src/app/Models/IExternalIds';
+import { MovieDetailsApiService } from 'src/app/Core/API/MovieDetailsApi.service';
 
 const movieDetailsInitial = {
   adult: false,
@@ -35,7 +35,7 @@ const movieDetailsInitial = {
   vote_count: 0,
 };
 
-const entertainmentInitial: IQueryRes<IEntertainment> = {
+const entertainmentInitial: IQueryRes<IMovie> = {
   page: 0,
   results: [],
   total_pages: 0,
@@ -59,11 +59,11 @@ const externalIdsInitial = {
 @Injectable({
   providedIn: 'root',
 })
-export class EntertainmentDetailsService {
+export class MovieDetailsService {
   private _movieDetails = new BehaviorSubject<IMovieDetails>(
     movieDetailsInitial
   );
-  private _recommended = new BehaviorSubject<IQueryRes<IEntertainment>>(
+  private _recommended = new BehaviorSubject<IQueryRes<IMovie>>(
     entertainmentInitial
   );
   private _credits = new BehaviorSubject<ICredits>(creditsInitial);
@@ -74,7 +74,7 @@ export class EntertainmentDetailsService {
   readonly credits = this._credits.asObservable();
   readonly externalIds = this._externalIds.asObservable();
 
-  constructor(private apiService: MovieDetailsService) {}
+  constructor(private apiService: MovieDetailsApiService) {}
 
   get getMovieDetails() {
     return this._movieDetails.asObservable();

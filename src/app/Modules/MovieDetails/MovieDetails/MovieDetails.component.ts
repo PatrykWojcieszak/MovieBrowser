@@ -1,11 +1,11 @@
-import { EntertainmentDetailsService } from './../EntertainmentDetails.service';
 import { Component, OnInit } from '@angular/core';
 import IMovieDetails from 'src/app/Models/IMovieDetails';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import IEntertainment from 'src/app/Models/IEntertainment';
+import IMovie from 'src/app/Models/IMovie';
 import IQueryRes from 'src/app/Models/IQueryRes';
 import ICredits from 'src/app/Models/ICredits';
 import IExternalIds from 'src/app/Models/IExternalIds';
+import { MovieDetailsService } from '../MovieDetails.service';
 
 const movieDetailsInitial = {
   adult: false,
@@ -35,7 +35,7 @@ const movieDetailsInitial = {
   vote_count: 0,
 };
 
-const entertainmentInitial: IQueryRes<IEntertainment> = {
+const entertainmentInitial: IQueryRes<IMovie> = {
   page: 0,
   results: [],
   total_pages: 0,
@@ -57,19 +57,19 @@ const externalIdsInitial = {
 };
 
 @Component({
-  selector: 'app-EntertainmentDetails',
-  templateUrl: './EntertainmentDetails.component.html',
-  styleUrls: ['./EntertainmentDetails.component.scss'],
+  selector: 'app-MovieDetails',
+  templateUrl: './MovieDetails.component.html',
+  styleUrls: ['./MovieDetails.component.scss'],
 })
-export class EntertainmentDetailsComponent implements OnInit {
+export class MovieDetailsComponent implements OnInit {
   movieDetails: IMovieDetails = movieDetailsInitial;
-  recommendations: IQueryRes<IEntertainment> = entertainmentInitial;
+  recommendations: IQueryRes<IMovie> = entertainmentInitial;
   credits: ICredits = creditsInitial;
   externalIds: IExternalIds = externalIdsInitial;
   movieId: string = '';
 
   constructor(
-    private dataService: EntertainmentDetailsService,
+    private dataService: MovieDetailsService,
     private route: ActivatedRoute
   ) {}
 
@@ -83,19 +83,23 @@ export class EntertainmentDetailsComponent implements OnInit {
     this.dataService.fetchCredits(this.movieId);
     this.dataService.fetchExternalId(this.movieId);
 
-    this.dataService.getMovieDetails.subscribe((movieDetails) => {
-      this.movieDetails = movieDetails;
-    });
+    this.dataService.getMovieDetails.subscribe(
+      (movieDetails: IMovieDetails) => {
+        this.movieDetails = movieDetails;
+      }
+    );
 
-    this.dataService.getRecommendations.subscribe((recommendations) => {
-      this.recommendations = recommendations;
-    });
+    this.dataService.getRecommendations.subscribe(
+      (recommendations: IQueryRes<IMovie>) => {
+        this.recommendations = recommendations;
+      }
+    );
 
-    this.dataService.getCredits.subscribe((credits) => {
+    this.dataService.getCredits.subscribe((credits: ICredits) => {
       this.credits = credits;
     });
 
-    this.dataService.getExternalIds.subscribe((externalIds) => {
+    this.dataService.getExternalIds.subscribe((externalIds: IExternalIds) => {
       this.externalIds = externalIds;
     });
   }

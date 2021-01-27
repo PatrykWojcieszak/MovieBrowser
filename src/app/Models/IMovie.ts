@@ -1,4 +1,4 @@
-interface IEntertainment {
+interface IMovie {
   poster_path: string;
   adult: boolean;
   overview: string;
@@ -17,4 +17,4 @@ interface IEntertainment {
   vote_average: number;
 }
 
-export default IEntertainment;
+export default IMovie;

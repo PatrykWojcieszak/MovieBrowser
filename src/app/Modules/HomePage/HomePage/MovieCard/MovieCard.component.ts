@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import IEntertainment from 'src/app/Models/IEntertainment';
+import IMovie from 'src/app/Models/IMovie';
 
 @Component({
   selector: 'app-MovieCard',
@@ -8,7 +8,7 @@ import IEntertainment from 'src/app/Models/IEntertainment';
   styleUrls: ['./MovieCard.component.scss'],
 })
 export class MovieCardComponent implements OnInit {
-  @Input() entertainment: IEntertainment = {
+  @Input() entertainment: IMovie = {
     poster_path: '',
     adult: false,
     overview: '',

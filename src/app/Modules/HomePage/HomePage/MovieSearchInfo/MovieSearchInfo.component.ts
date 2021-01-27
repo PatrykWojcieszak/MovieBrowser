@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import IEntertainment from 'src/app/Models/IEntertainment';
+import IMovie from 'src/app/Models/IMovie';
 
 @Component({
   selector: 'app-MovieSearchInfo',
@@ -7,7 +7,7 @@ import IEntertainment from 'src/app/Models/IEntertainment';
   styleUrls: ['./MovieSearchInfo.component.scss'],
 })
 export class MovieSearchInfoComponent implements OnInit {
-  @Input() entertainment: IEntertainment = {
+  @Input() entertainment: IMovie = {
     poster_path: '',
     adult: false,
     overview: '',

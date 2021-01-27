@@ -1,7 +1,7 @@
-import { EntertainmentDetailsComponent } from './Modules/EntertainmentDetails/EntertainmentDetails/EntertainmentDetails.component';
 import { HomePageComponent } from './Modules/HomePage/HomePage/HomePage.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { MovieDetailsComponent } from './Modules/MovieDetails/MovieDetails/MovieDetails.component';
 
 const routes: Routes = [
   {
@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'home/:id',
-    component: EntertainmentDetailsComponent,
+    component: MovieDetailsComponent,
   },
   {
     path: '**',

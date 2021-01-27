@@ -4,7 +4,7 @@ import { APIService } from './API.service';
 @Injectable({
   providedIn: 'root',
 })
-export class MovieDetailsService {
+export class MovieDetailsApiService {
   private BASE = '/movie/';
   private GET_CREDITS: string = '/credits';
   private GET_RECOMMENDATIONS: string = '/recommendations';

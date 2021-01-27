@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-let baseUrl: string = 'https://api.themoviedb.org/3';
+const baseUrl: string = 'https://api.themoviedb.org/3';
 
 @Injectable({
   providedIn: 'root',

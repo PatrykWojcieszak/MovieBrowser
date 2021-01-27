@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomePageService } from '../HomePage.service';
-import IEntertainment from 'src/app/Models/IEntertainment';
+import IMovie from 'src/app/Models/IMovie';
 import IQueryRes from 'src/app/Models/IQueryRes';
 
 const initial = {
@@ -16,11 +16,11 @@ const initial = {
   styleUrls: ['./HomePage.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-  trending: IQueryRes<IEntertainment>;
-  popular: IQueryRes<IEntertainment>;
-  topRated: IQueryRes<IEntertainment>;
-  upcoming: IQueryRes<IEntertainment>;
-  searchResult: IQueryRes<IEntertainment>;
+  trending: IQueryRes<IMovie>;
+  popular: IQueryRes<IMovie>;
+  topRated: IQueryRes<IMovie>;
+  upcoming: IQueryRes<IMovie>;
+  searchResult: IQueryRes<IMovie>;
 
   trendingDaySelected = true;
   trendingThisWeekSelected = false;

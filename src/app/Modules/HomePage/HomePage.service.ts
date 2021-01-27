@@ -1,10 +1,10 @@
 import { MovieApiService } from './../../Core/API/MovieApi.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import IEntertainment from 'src/app/Models/IEntertainment';
+import IMovie from 'src/app/Models/IMovie';
 import IQueryRes from 'src/app/Models/IQueryRes';
 
-const initial: IQueryRes<IEntertainment> = {
+const initial: IQueryRes<IMovie> = {
   page: 0,
   results: [],
   total_pages: 0,
@@ -15,13 +15,11 @@ const initial: IQueryRes<IEntertainment> = {
   providedIn: 'root',
 })
 export class HomePageService {
-  private _trending = new BehaviorSubject<IQueryRes<IEntertainment>>(initial);
-  private _topRated = new BehaviorSubject<IQueryRes<IEntertainment>>(initial);
-  private _popular = new BehaviorSubject<IQueryRes<IEntertainment>>(initial);
-  private _upcoming = new BehaviorSubject<IQueryRes<IEntertainment>>(initial);
-  private _searchResult = new BehaviorSubject<IQueryRes<IEntertainment>>(
-    initial
-  );
+  private _trending = new BehaviorSubject<IQueryRes<IMovie>>(initial);
+  private _topRated = new BehaviorSubject<IQueryRes<IMovie>>(initial);
+  private _popular = new BehaviorSubject<IQueryRes<IMovie>>(initial);
+  private _upcoming = new BehaviorSubject<IQueryRes<IMovie>>(initial);
+  private _searchResult = new BehaviorSubject<IQueryRes<IMovie>>(initial);
 
   readonly trendingMovies = this._trending.asObservable();
   readonly topRatedMovies = this._topRated.asObservable();

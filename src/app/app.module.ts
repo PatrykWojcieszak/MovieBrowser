@@ -1,7 +1,3 @@
-import { SubDetailsComponent } from './Modules/EntertainmentDetails/EntertainmentDetails/SubDetails/SubDetails.component';
-import { MainDetailsComponent } from './Modules/EntertainmentDetails/EntertainmentDetails/MainDetails/MainDetails.component';
-import { HeaderComponent } from './Modules/EntertainmentDetails/EntertainmentDetails/Header/Header.component';
-import { EntertainmentDetailsComponent } from './Modules/EntertainmentDetails/EntertainmentDetails/EntertainmentDetails.component';
 import { MovieSearchInfoComponent } from './Modules/HomePage/HomePage/MovieSearchInfo/MovieSearchInfo.component';
 import { GetGenrePipe } from './Shared/Pipes/GetGenre.pipe';
 import { ShortenStringPipe } from './Shared/Pipes/ShortenString.pipe';
@@ -17,7 +13,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InputComponent } from './Shared/UI/Input/Input.component';
 import { ButtonComponent } from './Shared/UI/Button/Button.component';
-import { CreditCardComponent } from './Modules/EntertainmentDetails/EntertainmentDetails/CreditCard/CreditCard.component';
+import { HeaderComponent } from './Modules/MovieDetails/MovieDetails/Header/Header.component';
+import { CreditCardComponent } from './Modules/MovieDetails/MovieDetails/CreditCard/CreditCard.component';
+import { MainDetailsComponent } from './Modules/MovieDetails/MovieDetails/MainDetails/MainDetails.component';
+import { SubDetailsComponent } from './Modules/MovieDetails/MovieDetails/SubDetails/SubDetails.component';
+import { MovieDetailsComponent } from './Modules/MovieDetails/MovieDetails/MovieDetails.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +28,7 @@ import { CreditCardComponent } from './Modules/EntertainmentDetails/Entertainmen
     ShortenStringPipe,
     GetGenrePipe,
     MovieSearchInfoComponent,
-    EntertainmentDetailsComponent,
+    MovieDetailsComponent,
     HeaderComponent,
     MainDetailsComponent,
     SubDetailsComponent,
