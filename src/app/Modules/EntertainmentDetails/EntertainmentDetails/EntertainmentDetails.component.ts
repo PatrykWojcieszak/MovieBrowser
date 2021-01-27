@@ -1,7 +1,7 @@
 import { EntertainmentDetailsService } from './../EntertainmentDetails.service';
 import { Component, OnInit } from '@angular/core';
 import IMovieDetails from 'src/app/Models/IMovieDetails';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import IEntertainment from 'src/app/Models/IEntertainment';
 import IQueryRes from 'src/app/Models/IQueryRes';
 import ICredits from 'src/app/Models/ICredits';

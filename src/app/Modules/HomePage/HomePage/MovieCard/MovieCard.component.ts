@@ -31,5 +31,7 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit() {}
 
-  onCardClick(id: number) {}
+  onCardClick() {
+    this.router.navigate(['home/', this.entertainment.id]);
+  }
 }
