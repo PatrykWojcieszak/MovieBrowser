@@ -1,27 +1,23 @@
-<div class="movieCard" (click)="onCardClick()">
+<div class="movieCard" [routerLink]="['/movie/', this.movie.id]">
   <img
     [src]="
-      entertainment.backdrop_path
-        ? 'https://image.tmdb.org/t/p/w500/' + entertainment.backdrop_path
+      movie.backdrop_path
+        ? 'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path
         : 'https://fpae.pt/backup/20181025/wp/wp-content/plugins/post-slider-carousel/images/no-image-available-grid.jpg'
     "
     alt="movieCard"
   />
-  <span class="averageVote">{{ entertainment.vote_average }}</span>
+  <span class="averageVote">{{ movie.vote_average }}</span>
   <div class="contentContainer">
-    <h2>{{ entertainment.title || entertainment.name }}</h2>
+    <h2>{{ movie.original_title }}</h2>
     <h4>
-      <span *ngIf="entertainment.release_date || entertainment.first_air_date"
-        >{{ entertainment.release_date || entertainment.first_air_date }} |
-      </span>
-      <span *ngFor="let genre of entertainment.genre_ids">{{
-        genre | GetGenre
-      }}</span>
+      <span *ngIf="movie.release_date">{{ movie.release_date }} | </span>
+      <span *ngFor="let genre of movie.genre_ids">{{ genre | GetGenre }}</span>
     </h4>
     <div class="additionalInfoWrapper">
       <h3>Summary</h3>
       <p>
-        {{ entertainment.overview | ShortenString: 100 }}
+        {{ movie.overview | ShortenString: 100 }}
       </p>
     </div>
   </div>

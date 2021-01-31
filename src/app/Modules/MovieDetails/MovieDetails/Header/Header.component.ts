@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import IGenre from 'src/app/Models/IGenre';
@@ -16,11 +16,11 @@ export class HeaderComponent implements OnInit {
   @Input() avgVote: number = 0;
   @Input() genres: IGenre[] = [];
 
-  constructor(private router: Router) {}
+  constructor(private location: Location) {}
 
   ngOnInit() {}
 
   onGoBackClick() {
-    this.router.navigate(['home']);
+    this.location.back();
   }
 }

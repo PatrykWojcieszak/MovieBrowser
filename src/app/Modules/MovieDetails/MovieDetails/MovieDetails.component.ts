@@ -76,12 +76,12 @@ export class MovieDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe((paramMap: Params) => {
       this.movieId = paramMap.get('id');
-    });
 
-    this.dataService.fetchMovieDetails(this.movieId);
-    this.dataService.fetchRecommendations(this.movieId);
-    this.dataService.fetchCredits(this.movieId);
-    this.dataService.fetchExternalId(this.movieId);
+      this.dataService.fetchMovieDetails(this.movieId);
+      this.dataService.fetchRecommendations(this.movieId);
+      this.dataService.fetchCredits(this.movieId);
+      this.dataService.fetchExternalId(this.movieId);
+    });
 
     this.dataService.getMovieDetails.subscribe(
       (movieDetails: IMovieDetails) => {

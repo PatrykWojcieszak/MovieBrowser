@@ -1,17 +1,17 @@
 <div class="subDetails">
-  <div class="detailWrapper">
+  <div class="detailWrapper" *ngIf="budget">
     <h3>Budget:</h3>
     <h4>${{ budget }}</h4>
   </div>
-  <div class="detailWrapper">
+  <div class="detailWrapper" *ngIf="revenue">
     <h3>Revenue:</h3>
     <h4>${{ revenue }}</h4>
   </div>
-  <div class="detailWrapper">
+  <div class="detailWrapper" *ngIf="status">
     <h3>Status:</h3>
     <h4>{{ status }}</h4>
   </div>
-  <div class="detailWrapper">
+  <div class="detailWrapper" *ngIf="language">
     <h3>Original language:</h3>
     <h4>{{ language }}</h4>
   </div>

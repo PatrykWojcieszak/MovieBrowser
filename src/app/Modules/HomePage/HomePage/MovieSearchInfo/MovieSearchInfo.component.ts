@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import IMovie from 'src/app/Models/IMovie';
 
@@ -7,7 +8,7 @@ import IMovie from 'src/app/Models/IMovie';
   styleUrls: ['./MovieSearchInfo.component.scss'],
 })
 export class MovieSearchInfoComponent implements OnInit {
-  @Input() entertainment: IMovie = {
+  @Input() movie: IMovie = {
     poster_path: '',
     adult: false,
     overview: '',
@@ -31,8 +32,8 @@ export class MovieSearchInfoComponent implements OnInit {
   ngOnInit() {}
 
   getImgPath() {
-    if (this.entertainment.backdrop_path)
-      return `https://image.tmdb.org/t/p/w500/${this.entertainment.backdrop_path}`;
+    if (this.movie.backdrop_path)
+      return `https://image.tmdb.org/t/p/w500/${this.movie.backdrop_path}`;
     else
       return 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/No_picture_available.png/401px-No_picture_available.png';
   }

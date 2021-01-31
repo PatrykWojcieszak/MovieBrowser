@@ -8,7 +8,7 @@ import IMovie from 'src/app/Models/IMovie';
   styleUrls: ['./MovieCard.component.scss'],
 })
 export class MovieCardComponent implements OnInit {
-  @Input() entertainment: IMovie = {
+  @Input() movie: IMovie = {
     poster_path: '',
     adult: false,
     overview: '',
@@ -27,11 +27,7 @@ export class MovieCardComponent implements OnInit {
     vote_average: 0,
   };
 
-  constructor(private router: Router) {}
+  constructor() {}
 
   ngOnInit() {}
-
-  onCardClick() {
-    this.router.navigate(['home/', this.entertainment.id]);
-  }
 }

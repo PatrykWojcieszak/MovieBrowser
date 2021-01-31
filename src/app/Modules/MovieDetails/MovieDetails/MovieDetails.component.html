@@ -30,12 +30,12 @@
       ></app-CreditCard>
     </div>
   </div>
-  <div class="sectionContainer">
+  <div class="sectionContainer" *ngIf="recommendations.results.length > 0">
     <h1>Recommendations</h1>
     <div class="sectionListWrapper">
       <app-MovieCard
         *ngFor="let item of recommendations.results"
-        [entertainment]="item"
+        [movie]="item"
       ></app-MovieCard>
     </div>
   </div>
