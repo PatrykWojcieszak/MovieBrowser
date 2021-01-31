@@ -76,6 +76,7 @@ export class MovieDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe((paramMap: Params) => {
       this.movieId = paramMap.get('id');
+      window.scrollTo(0, 0);
 
       this.dataService.fetchMovieDetails(this.movieId);
       this.dataService.fetchRecommendations(this.movieId);
