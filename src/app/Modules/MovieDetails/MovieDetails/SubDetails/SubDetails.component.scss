@@ -25,3 +25,9 @@
     }
   }
 }
+
+@include tablet {
+  .subDetails {
+    margin-top: 2rem;
+  }
+}

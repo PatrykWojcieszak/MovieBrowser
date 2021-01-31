@@ -49,3 +49,19 @@
     }
   }
 }
+
+@include tablet {
+  .mainDetails {
+    @include flex-column;
+
+    img {
+      width: 100%;
+      border-radius: 1rem;
+    }
+
+    .content {
+      margin-top: 2rem;
+      margin-left: 0;
+    }
+  }
+}

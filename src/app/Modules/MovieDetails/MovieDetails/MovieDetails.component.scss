@@ -28,3 +28,25 @@
     }
   }
 }
+
+@include large {
+  .mainContainer {
+    padding: 2rem 4rem;
+  }
+}
+
+@include tablet {
+  .mainContainer {
+    padding: 2rem;
+
+    .row {
+      @include flex-column;
+    }
+  }
+}
+
+@include mobile {
+  .mainContainer {
+    padding: 1rem;
+  }
+}
