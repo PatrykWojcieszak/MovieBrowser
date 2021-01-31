@@ -13,3 +13,9 @@
 .selected {
   color: $red;
 }
+
+@include mobile {
+  .button {
+    font-size: 1rem;
+  }
+}
