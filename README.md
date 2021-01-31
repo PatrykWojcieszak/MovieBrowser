@@ -5,8 +5,7 @@ MovieBrowser is fun project made in Angular to test new features and experiment 
 
 This project was built using [Angular](https://angular.io/), and the [TheMovieDbAPI](https://developers.themoviedb.org/3).
 
-You can see live preview of this website through:
-GitHub pages. [MovieBrowser](https://patrykwojcieszak.github.io/MovieBrowser/home)
+You can see live preview of this website through Github Pages.
 
 ![Image of GymNotes](https://i.imgur.com/0rhPrpV.png)
 
