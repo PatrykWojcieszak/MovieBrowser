@@ -5,13 +5,9 @@
       {{ overview }}
     </p>
     <div class="row">
-      <div class="creator">
-        <h3>Rock Roman Wough</h3>
-        <h4>Director</h4>
-      </div>
-      <div class="creator">
-        <h3>Rock Roman Wough</h3>
-        <h4>Director</h4>
+      <div class="creator" *ngFor="let item of onFilterCrew()">
+        <h3>{{ item.name }}</h3>
+        <h4>{{ item.job }}</h4>
       </div>
     </div>
     <div class="row">

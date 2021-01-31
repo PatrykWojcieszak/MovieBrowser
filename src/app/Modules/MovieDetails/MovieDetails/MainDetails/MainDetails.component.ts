@@ -4,6 +4,7 @@ import {
   faInstagram,
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
+import ICrew from 'src/app/Models/ICrew';
 @Component({
   selector: 'app-MainDetails',
   templateUrl: './MainDetails.component.html',
@@ -15,6 +16,7 @@ export class MainDetailsComponent implements OnInit {
   @Input() facebookId: string = '';
   @Input() instagramId: string = '';
   @Input() twitterId: string = '';
+  @Input() crew: ICrew[] = [];
 
   faFacebook = faFacebook;
   faTwitter = faTwitter;
@@ -23,4 +25,12 @@ export class MainDetailsComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  onFilterCrew(): ICrew[] {
+    const filtered = this.crew.filter(
+      (x) => x.job === 'Director' || x.job === 'Writer'
+    );
+
+    return filtered;
+  }
 }
